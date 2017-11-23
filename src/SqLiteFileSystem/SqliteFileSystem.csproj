@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Zio.FileSystems.Community.SqliteFileSystem</RootNamespace>
@@ -11,12 +10,18 @@
     <Copyright>Anthony Truskinger</Copyright>
     <AssemblyName>Zio.FileSystems.Community.SqliteFileSystem</AssemblyName>
     <Product>Zio.FileSystems.Community.SqliteFileSystem</Product>
+    <PackageProjectUrl>https://github.com/atruskie/SqliteFileSystem</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/atruskie/SqliteFileSystem/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/atruskie/SqliteFileSystem</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Zio filesystem sqlite virtualfilesystem flatfilesystem</PackageTags>
   </PropertyGroup>
-
   <ItemGroup>
+    <PackageReference Include="GitVersionTask" Version="3.6.5">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="2.0.0" />
     <PackageReference Include="System.ValueTuple" Version="4.4.0" />
-    <PackageReference Include="Zio" Version="0.3.1" />
+    <PackageReference Include="Zio" Version="0.3.6" />
   </ItemGroup>
-
 </Project>

@@ -1,0 +1,16 @@
+image: Visual Studio 2017 Preview
+configuration: Release
+platform: Any CPU
+nuget:
+  account_feed: true
+build:
+  publish_nuget: true
+  publish_nuget_symbols: true
+  verbosity: minimal
+notifications:
+- provider: Email
+  to:
+  - '{{commitAuthorEmail}}'
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: true
