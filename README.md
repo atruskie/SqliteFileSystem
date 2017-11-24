@@ -1,7 +1,7 @@
 # SqliteFileSystem
 A Zio file system provider that uses a SQLite3 database as a flat file store
 
-appveyor.com/api/projects/status/psh6lcwk51xvjry4?svg=true)](https://ci.appveyor.com/project/atruskie/sqlitefilesystem)
+[![Build Status](https://ci.appveyor.com/api/projects/status/psh6lcwk51xvjry4?svg=true)](https://ci.appveyor.com/project/atruskie/sqlitefilesystem)
 
 ## What
 
