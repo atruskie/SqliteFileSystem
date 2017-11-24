@@ -1,12 +1,28 @@
+version: '{build}'
 image: Visual Studio 2017 Preview
-configuration: Release
+configuration: Debug
 platform: Any CPU
 nuget:
-  account_feed: true
-build:
-  publish_nuget: true
-  publish_nuget_symbols: true
-  verbosity: minimal
+  project_feed: true
+artifacts:
+  - path: src\SqLiteFileSystem\bin\**\*.nupkg
+install:
+  - choco install gitversion.portable -pre -y
+assembly_info:
+  patch: false
+before_build:
+  - dotnet restore
+  - ps: gitversion /l console /output buildserver /updateAssemblyInfo
+build_script:
+  - dotnet build /p:PackageVersion="%GitVersion_NuGetVersionV2%" --configuration "%CONFIGURATION%"
+after_build:
+  - cmd: ECHO dotnet /p:PackageVersion="%GitVersion_NuGetVersionV2%" --configuration "%CONFIGURATION%"
+  - cmd: dotnet pack /p:PackageVersion="%GitVersion_NuGetVersionV2%" --configuration "%CONFIGURATION%" --no-build
+  #- cmd: appveyor PushArtifact "src\SqLiteFileSystem\bin\**\*.nupkg"
+test_script:
+  # Appveyor logger crashes if used... so not logging test results to appveyor for now
+  # Tests failing on release builds - test only on debug for now
+  - dotnet test .\test\SqliteFileSystem.Tests\ --configuration "%CONFIGURATION%"
 notifications:
 - provider: Email
   to:

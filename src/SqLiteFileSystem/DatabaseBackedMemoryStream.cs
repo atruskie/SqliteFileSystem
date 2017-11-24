@@ -47,7 +47,10 @@ namespace Zio.FileSystems.Community.SqliteFileSystem
             var blob = Adapter.GetBlob(connection, path);
             
             // write the blob to our in-memory backing store
-            base.Write(blob, 0, blob.Length);
+            if (blob !=  null) {
+                base.Write(blob, 0, blob.Length);
+            }
+            
             base.Position = 0;
             this.shouldFlush = false;
             this.canWrite = canWrite;

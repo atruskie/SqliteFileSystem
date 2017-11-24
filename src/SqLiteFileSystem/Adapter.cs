@@ -147,6 +147,11 @@ END;";
                 using (var reader = command.ExecuteReader())
                 {
                     Debug.Assert(reader.NextResult());
+                    
+                    if (!reader.HasRows) {
+                        return null;
+                    }
+                    
                     reader.Read();
 
                     return reader.IsDBNull(0) ? null : reader.GetFieldValue<byte[]>(0);

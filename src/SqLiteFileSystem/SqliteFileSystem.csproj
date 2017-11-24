@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Zio.FileSystems.Community.SqliteFileSystem</RootNamespace>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>Zio.FileSystems.Community.SqliteFileSystem</PackageId>
     <Authors>Anthony Truskinger</Authors>
     <Company />
@@ -15,11 +15,12 @@
     <RepositoryUrl>https://github.com/atruskie/SqliteFileSystem</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Zio filesystem sqlite virtualfilesystem flatfilesystem</PackageTags>
+    <!--These are set by GitVersion in the build script -->
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="GitVersionTask" Version="3.6.5">
-      <PrivateAssets>All</PrivateAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="2.0.0" />
     <PackageReference Include="System.ValueTuple" Version="4.4.0" />
     <PackageReference Include="Zio" Version="0.3.6" />

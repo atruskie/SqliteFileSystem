@@ -38,7 +38,7 @@
         [TestMethod]
         public void TestUPathBehaviour()
         {
-            var testPath = (UPath)"/mnt/c/Users/Anthony";
+            var testPath = (UPath)$"/mnt/c/Users/{Environment.UserName}";
 
             var actual = this.localFileSystem.ConvertPathToInternal(testPath.ToAbsolute());
 
